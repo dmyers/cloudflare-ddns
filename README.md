@@ -4,6 +4,27 @@ This is a small Dynamic DNS (DDNS) script for syncing your public (external) IP 
 
 This was built to be used with my Synology DS918+ to update my DNS record for my Cloudflare zone when my non-static IP address changes at home as I have local services that I like to easily access remotely with a custom hostname.
 
+## Installing
+
+* Download and setup on your machine.
+
+* Install composer dependencies:
+
+    `$ composer install`
+
+* [Create an API token at Cloudflare](https://dash.cloudflare.com/profile/api-tokens) or use your global key (security risk!):
+
+    The token should have the following permissions (scopes):
+    
+    * Zones - - > DNS  - - > Edit
+    * Zones - - > Zone - - > Read
+
+* Copy and edit the example env config file:
+
+    `$ cp .env.example .env`
+
+## Setup
+
 ### Option 1: Synology Module
 
 * Setup a symlink to the script with executable permissions:
@@ -24,23 +45,6 @@ EOF
 ```
 
 ## Option 2: Scheduled Task (cron)
-
-* Download and setup on your machine.
-
-* Install composer dependencies:
-
-    `$ composer install`
-
-* [Create an API token at Cloudflare](https://dash.cloudflare.com/profile/api-tokens) or use your global key (security risk!):
-
-    The token should have the following permissions (scopes):
-    
-    * Zones - - > DNS  - - > Edit
-    * Zones - - > Zone - - > Read
-
-* Copy and edit the example env config file:
-
-    `$ cp .env.example .env`
 
 * Setup a scheduled task (cron job) as frequently as you want to be checked (daily is common)
 
