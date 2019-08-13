@@ -1,0 +1,22 @@
+{
+  "name": "dmyers/cloudflare-ddns",
+  "description": "Dynamic DNS for syncing your public IP to Cloudflare DNS.",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Derek Myers",
+      "email": "arcticpro@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "cloudflare/sdk": "^1.1",
+    "guzzlehttp/guzzle": "^6.2.2",
+    "vlucas/phpdotenv": "^3.4"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
