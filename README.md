@@ -16,8 +16,8 @@ This was built to be used with my Synology DS918+ to update my DNS record for my
 
     The token should have the following permissions (scopes):
     
-    * Zones - - > DNS  - - > Edit
-    * Zones - - > Zone - - > Read
+    * Zones -> DNS  -> Edit
+    * Zones -> Zone -> Read
 
 * Copy and edit the example env config file:
 
@@ -26,6 +26,8 @@ This was built to be used with my Synology DS918+ to update my DNS record for my
 ## Setup
 
 ### Option 1: Synology Module
+
+If you have a Synology server, you can make Cloudflare one of the DDNS service providers and it works just like any other built in one.
 
 * Setup a symlink to the script with executable permissions:
 
@@ -43,6 +45,10 @@ $ sudo cat >> /etc.defaults/ddns_provider.conf << EOF
         queryurl=https://www.cloudflare.com/
 EOF
 ```
+
+* Next, go to the Synology DiskStation and add the new `Cloudflare` service provider.
+
+    * Control Panel -> External Access -> DDNS -> Add
 
 ## Option 2: Scheduled Task (cron)
 
