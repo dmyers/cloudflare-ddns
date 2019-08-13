@@ -9,11 +9,23 @@ use Cloudflare\API\Endpoints\DNS as CloudflareDnsApi;
 use Cloudflare\API\Endpoints\Zones as CloudflareZoneApi;
 
 define('LOG_FILE', '/var/log/cloudflareddns.log');
-$logger = fopen(LOG_FILE, 'a+');
 
 function logger($msg) {
-    global $logger;
+    static $logger;
+
+    if ($logger === null) {
+        $logger = fopen(LOG_FILE, 'a+');
+    }
+
     fwrite($logger, $msg."\n");
+}
+
+function env($key, $default = null) {
+    if (array_key_exists($_ENV, $key)) {
+        return $_ENV[$key];
+    }
+
+    return $default;
 }
 
 /**
@@ -32,7 +44,7 @@ $dotenv->load();
  */
 $guzzle = new Guzzle();
 
-$domainName = $_ENV['DOMAIN_NAME'];
+$domainName = env('DOMAIN_NAME');
 
 // Must be plugin invoke
 if ($argc === 5) {
@@ -46,9 +58,9 @@ else {
     /**
      * Service configuration
      */
-    $authEmail  = $_ENV['AUTH_EMAIL'];
-    $authKey    = $_ENV['AUTH_KEY'];
-    $recordName = $_ENV['RECORD_NAME'];
+    $authEmail  = env('AUTH_EMAIL');
+    $authKey    = env('AUTH_KEY');
+    $recordName = env('RECORD_NAME');
 
     // Get external/remote facing public IP address
     logger('Detecting public IP address...');
