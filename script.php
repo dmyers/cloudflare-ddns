@@ -45,6 +45,7 @@ $dotenv->load();
 $guzzle = new Guzzle();
 
 $domainName = env('DOMAIN_NAME');
+$recordTtl = env('RECORD_TTL', 1);
 
 // Must be plugin invoke
 if ($argc === 5) {
@@ -120,6 +121,7 @@ try {
             'type'    => 'A',
             'name'    => $recordName,
             'content' => $ipAddress,
+            'ttl'     => $recordTtl,
         ];
         logger('Updating public IP Address in DNS zone...');
         $result = $dns->updateRecordDetails($zoneId, $recordId, $recordData);
