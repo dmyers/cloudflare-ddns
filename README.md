@@ -32,14 +32,14 @@ If you have a Synology server, you can make Cloudflare one of the DDNS service p
 * Setup a symlink to the script with executable permissions:
 
 ```bash
-$ sudo ln -s /path/to/cloudflare-ddns/script.php /usr/syno/bin/ddns/cloudflare.php
-$ sudo chmod +x cloudflare.php
+$ ln -s /path/to/cloudflare-ddns/script.php /usr/syno/bin/ddns/cloudflare.php
+$ chmod +x cloudflare.php
 ```
 
 * Add the module to the DDNS provider config:
 
 ```bash
-$ sudo cat >> /etc.defaults/ddns_provider.conf << EOF
+$ cat >> /etc.defaults/ddns_provider.conf << EOF
 [Cloudflare]
         modulepath=/usr/syno/bin/ddns/cloudflare.php
         queryurl=https://www.cloudflare.com/
