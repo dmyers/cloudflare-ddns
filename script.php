@@ -16,6 +16,9 @@ function logger(string $msg, array $params = []): void {
     if ($logger === null) {
         $logger = @fopen(LOG_FILE, 'a+');
     }
+    if ($logger === false || !is_resource($logger)) {
+        return;
+    }
 
     if (is_array($params) && !empty($params)) {
         $msg .= ' - '.json_encode($params);
