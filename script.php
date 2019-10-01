@@ -12,11 +12,13 @@ define('LOG_FILE', '/var/log/cloudflareddns.log');
 
 function logger($msg) {
     static $logger;
-
+    
     if ($logger === null) {
         $logger = fopen(LOG_FILE, 'a+');
     }
-
+    
+    $msg = '['.date('Y-m-d H:i:s').'] '.$msg;
+    
     fwrite($logger, $msg."\n");
 }
 
