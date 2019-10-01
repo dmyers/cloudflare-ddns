@@ -10,11 +10,15 @@ use Cloudflare\API\Endpoints\Zones as CloudflareZoneApi;
 
 define('LOG_FILE', '/var/log/cloudflareddns.log');
 
-function logger($msg) {
+function logger($msg, array $params = []) {
     static $logger;
     
     if ($logger === null) {
         $logger = fopen(LOG_FILE, 'a+');
+    }
+
+    if (is_array($params) && !empty($params)) {
+        $msg .= ' - '.json_encode($params);
     }
     
     $msg = '['.date('Y-m-d H:i:s').'] '.$msg;
