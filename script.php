@@ -11,7 +11,7 @@ use Cloudflare\API\Endpoints\Zones as CloudflareZoneApi;
 
 define('LOG_FILE', '/var/log/cloudflareddns.log');
 
-function logger($msg, array $params = []) {
+function logger(string $msg, array $params = []) {
     static $logger;
     
     if ($logger === null) {
