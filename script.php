@@ -26,7 +26,7 @@ function logger($msg, array $params = []) {
     fwrite($logger, $msg."\n");
 }
 
-function env($key, $default = null) {
+function env(string $key, $default = null) {
     if (array_key_exists($_ENV, $key)) {
         return $_ENV[$key];
     }
