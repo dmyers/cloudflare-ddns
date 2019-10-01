@@ -14,7 +14,7 @@ function logger(string $msg, array $params = []): void {
     static $logger;
     
     if ($logger === null) {
-        $logger = fopen(LOG_FILE, 'a+');
+        $logger = @fopen(LOG_FILE, 'a+');
     }
 
     if (is_array($params) && !empty($params)) {
@@ -173,5 +173,5 @@ catch (Exception $e) {
     exit(1);
 }
 
-fclose($logger);
+@fclose($logger);
 exit(0);
