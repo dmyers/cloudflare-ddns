@@ -121,7 +121,6 @@ try {
     logger('Found DNS record ID: '.$recordId);
 
     // Get the current public IP address for the DNS record
-    logger('Found DNS record IP address: '.$recordId);
     $record = $dns->getRecordDetails($zoneId, $recordId);
     $currentIpAddress = $record->content;
     logger('Current public IP Address from DNS zone resolver: '.$currentIpAddress);
