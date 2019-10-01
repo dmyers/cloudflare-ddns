@@ -1,6 +1,5 @@
 #!/usr/bin/env php72
 <?php
-use Exception;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Exception\ClientException as GuzzleException;
 use Cloudflare\API\Auth\APIKey as CloudflareKey;
