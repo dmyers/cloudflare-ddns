@@ -173,5 +173,7 @@ catch (Exception $e) {
     exit(1);
 }
 
-@fclose($logger);
+if (is_resource($logger)) {
+    @fclose($logger);
+}
 exit(0);
