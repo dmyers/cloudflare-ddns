@@ -55,7 +55,7 @@ $guzzle = new Guzzle();
 
 $domainName = env('DOMAIN_NAME');
 $recordTtl = env('RECORD_TTL', 1);
-$recordProxy = env('RECORD_PROXY', true);
+$recordProxy = env('RECORD_PROXY', false);
 
 // Must be plugin invoke
 if ($argc === 5) {
