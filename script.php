@@ -134,8 +134,8 @@ try {
             'proxied' => $recordProxy,
         ];
         logger('Updating public IP Address in DNS zone...');
-        $result = $dns->updateRecordDetails($zoneId, $recordId, $recordData);
         logger($currentIpAddress.' => '.$ipAddress);
+        $result = $dns->updateRecordDetails($zoneId, $recordId, $recordData);
         logger('SUCCESS: The DNS record was updated.');
         echo 'good';
     }
