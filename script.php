@@ -153,6 +153,10 @@ catch (GuzzleException $e) {
     $errorCode = $error['code'];
     $errorMsg = $error['message'];
     logger('ERROR: Status is '.$statusCode.' - '.$errorMsg.' ('.$errorCode.')');
+    $errorChain = $error['error_chain'];
+    $errorChainCode = $errorChain[0]['code'];
+    $errorChainMsg = $errorChain[0]['message'];
+    logger('ERROR (chain): '.$errorChainMsg.' ('.$errorChainCode.')');
 
     if ($statusCode == 401) {
         echo 'badauth';
