@@ -54,7 +54,7 @@ EOF
 
 * Setup a scheduled task (cron job) as frequently as you want to be checked (daily is common)
 
-    `echo '0 * * * * root ' >> /etc/cron.d/crontab`
+    `echo '0 * * * * root ' >> /etc/crontab`
 
 ## Requirements
 
