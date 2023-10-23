@@ -1,4 +1,4 @@
-#!/usr/bin/env php72
+#!/usr/bin/env php81
 <?php
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Exception\ClientException as GuzzleException;
