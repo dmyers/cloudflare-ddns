@@ -59,5 +59,5 @@ EOF
 ## Requirements
 
 * Cloudflare account with your email and API key
-* PHP 7.2 with Composer
+* PHP 8.1 with Composer
 * Domain name pointed at Cloudflare with the DNS zone activated
